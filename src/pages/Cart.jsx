@@ -19,7 +19,7 @@ function Cart() {
         <ul className="list-group">
           {state.books.map((book) => (
             <li key={book.id} className="list-group-item">
-              <p className="fw-bold">{book.dbid}</p>
+              <p className="fw-bold">ID {book.dbid}</p>
               <p className="">{book.title}</p>
               <button onClick={() => dispatch({type:'delete', payload:book})}>remove</button>
             </li>

@@ -5,6 +5,7 @@ import { Outlet, Link } from "react-router-dom";
 
 import { AppContext } from "../AppContext";
 import ProductList from './ProductList';
+import CartSummary from './CartSummary';
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getBooks } from '../api/getBooks';
@@ -27,13 +28,8 @@ function Shop() {
   return ( 
     <div>
       <h4 className="bg-primary text-white text-center p-2">Shop</h4>
-      <div>
-        Items in Cart: {state.count} |
-        <Link to="/shop/cart" className="">
-          <button type="button" className="btn btn-primary">Go to Cart</button>|
-        </Link>
-      </div>
-      
+      <CartSummary state={state} />
+
       <div className="row">
         <div className="col-12 col-sm-12 col-md-6">
           <ProductList books={books} />
