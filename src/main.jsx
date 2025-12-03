@@ -1,28 +1,28 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ContextProvider } from "./AppContext";
 
 // import './index.css'
-import 'bootstrap/dist/css/bootstrap.css';
-import App from './App.jsx'
-import { ErrorPage } from './pages/ErrorPage';
-import Shop from './pages/Shop';
-import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
-import Home from './pages/Home';
-import NewBookForm from './pages/NewBookForm'; 
-import Detail from './pages/Detail';
-import Dummy from './pages/Dummy';
+import "bootstrap/dist/css/bootstrap.css";
+import App from "./App.jsx";
+import { ErrorPage } from "./pages/ErrorPage";
+import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import Home from "./pages/Home";
+import NewBookForm from "./pages/NewBookForm";
+import Detail from "./pages/Detail";
+import Dummy from "./pages/Dummy";
 
-const queryClient = new QueryClient(); 
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />, 
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin/new",
-        element: <NewBookForm />
+        element: <NewBookForm />,
       },
       {
         path: "/shop/products",
@@ -41,27 +41,25 @@ const router = createBrowserRouter([
             index: true,
             element: <Dummy />,
           },
-			    { 
-            path: '/shop/products/:bookId', 
-            element:<Detail/>
-          }
-		    ]
+          {
+            path: "/shop/products/:bookId",
+            element: <Detail />,
+          },
+        ],
       },
       {
         path: "/shop/cart",
-        element: <Cart />
+        element: <Cart />,
       },
       {
         path: "/shop/checkout",
-        element: <Checkout />
-      }
-
+        element: <Checkout />,
+      },
     ],
   },
-  
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ContextProvider>
       <QueryClientProvider client={queryClient}>
@@ -69,4 +67,4 @@ createRoot(document.getElementById('root')).render(
       </QueryClientProvider>
     </ContextProvider>
   </StrictMode>
-)
+);

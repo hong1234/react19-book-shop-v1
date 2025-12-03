@@ -26,4 +26,4 @@ git clone https://github.com/hong1234/spring-boot3-mvc-jpa-restApi.git
 
 cd spring-boot3-mvc-jpa-restApi
 
-mvn spring-boot:run
+./mvnw spring-boot:run
